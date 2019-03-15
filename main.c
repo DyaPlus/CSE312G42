@@ -23,6 +23,7 @@ int main(void){
 	LCD_data('Y');
 	LCD_data('A');
 	LCD_data('A');
+	LCD_data('2');
 
 }
 
