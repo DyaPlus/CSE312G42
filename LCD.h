@@ -6,8 +6,8 @@
 
 void LCDWriteByte(unsigned char LCDData) {
 GPIOPortWrite(LCDData,PORTD_P, 0x0F);
-GPIOPortWrite(LCDData,PORTB_P, 0x20);
-GPIOPortWrite(LCDData,PORTA_P, 0xD0);
+//GPIOPortWrite(LCDData,PORTB_P, 0x20);
+GPIOPortWrite(LCDData,PORTA_P, 0xF0);
 EN(1);
 delayms(1);
 EN(0);
