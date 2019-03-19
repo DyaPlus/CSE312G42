@@ -1,49 +1,49 @@
-#include "DGPIO.h" 
+/******************************************************************************
+ *
+ * Module: LCD
+ *
+ * File Name: lcd.h
+ *
+ * Description: Header file for the LCD driver
+ *
+ * Author: Khaled Mohammed
+ *******************************************************************************/
 
-/* LCD DMACROS*/
-#define RS(X)     GPIO_PORTF_DATA_R = ((GPIO_PORTF_DATA_R & ~(1<<1)) | (X<<1)) // RS is bit 1
-#define EN(X)     GPIO_PORTF_DATA_R = ((GPIO_PORTF_DATA_R & ~(1<<2)) | (X<<2)) // EN is bit 2
+#ifndef LCD_H_
+#define LCD_H_
 
-void LCDWriteByte(unsigned char LCDData) {
-GPIOPortWrite(LCDData,PORTD_P, 0x0F);
-//GPIOPortWrite(LCDData,PORTB_P, 0x20);
-GPIOPortWrite(LCDData,PORTA_P, 0xF0);
-EN(1);
-delayms(1);
-EN(0);
-}
+#include "typedefs.h"
 
-void LCD_command(unsigned char LCDData) {//Function to pass command to the LCD 
-	
-RS(0); //RS = 0 since command to LCD
-LCDWriteByte(LCDData); //Send data on LCD data bus
+/*******************************************************************************
+ *                      Preprocessor Macros                                    *
+ *******************************************************************************/
+/* LCD Data bits mode configuration */
+#define DATA_BITS_MODE 8
 
-}
+/* LCD HW Pins */
 
-void LCD_data(unsigned char LCDData) {//Function to write data to the LCD
-	
-RS(1);//RS = 1 since data to LCD
-LCDWriteByte(LCDData);
-RS(0);
-}
 
-void InitLCD(void) {
-	delayms(200);
-	LCD_command(0x30);
-	delayms(20);
-	LCD_command(0x30);
-	delayms(20);
-	LCD_command(0x30);
-	delayms(20);
-	LCD_command(0x38);
-	delayms(20);
-	LCD_command(0x08);
-	delayms(20);
-	LCD_command(0x01);
-	delayms(20);
-	LCD_command(0x06);
-	delayms(20);
-	LCD_command(0x0C);
-	delayms(20);
-	
-}
+/* LCD Commands */
+#define CLEAR_COMMAND 0x01
+#define FOUR_BITS_DATA_MODE 0x02
+#define TWO_LINE_LCD_Four_BIT_MODE 0x28
+#define TWO_LINE_LCD_Eight_BIT_MODE 0x38
+#define CURSOR_OFF 0x0C
+#define DISPLAY_OFF_CURSOR_OFF 0x08
+#define SHIFT_CURSOR_TO_RIGHT
+#define CURSOR_ON 0x0E
+#define SET_CURSOR_LOCATION 0x80 
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+void LCD_sendCommand(uint8 command);
+void LCD_displayCharacter(uint8 data);
+void LCD_displayString(const char *Str);
+void LCD_init(void);
+void LCD_clearScreen(void);
+void LCD_displayStringRowColumn(uint8 row,uint8 col,const char *Str);
+void LCD_goToRowColumn(uint8 row,uint8 col);
+void LCD_intgerToString(int data);
+void delayms(float delay);
+#endif /* LCD_H_ */
