@@ -6,7 +6,7 @@ void LCD_init(void)
 {
 	Port_SetPinDirection(PORT_D_INDEX, PORT_LOWER, PORT_PIN_OUT); /* Configure the data port as output port */
 	Port_SetPinDirection(PORT_A_INDEX, PORT_UPPER, PORT_PIN_OUT); /* Configure the data port as output port */
-	Port_SetPinDirection(#define PORT_F_INDEX,LOWER_3_PINS,PORT_PIN_OUT); /* Configure the control pins(E,RS,RW) as output pins */
+	Port_SetPinDirection(PORT_F_INDEX,LOWER_3_PINS,PORT_PIN_OUT); /* Configure the control pins(E,RS,RW) as output pins */
 	
 	delayms(200);
 	
