@@ -1,7 +1,7 @@
 
 
 // 0.Documentation Section 
-// port_setPinDirection function
+// Button_Reset function
 // Runs on LM4F120 or TM4C123
 // Authors: khaled ahmed abdelgalil
 // Date: 20/3/2019
