@@ -1,5 +1,4 @@
 
-
 // 0.Documentation Section 
 // Button_Reset function
 // Runs on LM4F120 or TM4C123
