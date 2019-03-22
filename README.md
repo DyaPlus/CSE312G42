@@ -3,9 +3,9 @@ Ain Shams Project for Tiva C board  a counter with reset functionality
 The final project can be found in Integration of the project folder 
 Team members and their tasks :
 1- Dyaa adel 
-Lcd init 
-Delay function c and header file 
-Set pull down function 
+1-Lcd init 
+2-Delay function c and header file 
+3-Set pull down function 
 
 2- Khaled Mohammed 
 
