@@ -2,9 +2,9 @@
 ## Ain Shams Project for Tiva C board  a counter with reset functionality
 ## The final project can be found in Integration of the project folder 
 <br>
-# Team members and their tasks :
+##  Team members and their tasks :
 <br>
-### 1- Dyaa adel 
+### 1-Dyaa adel 
 <br>
 1-Lcd init 
 <br>
